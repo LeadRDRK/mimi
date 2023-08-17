@@ -1,0 +1,12 @@
+include: package:lints/recommended.yaml
+
+linter:
+  rules:
+    - prefer_single_quotes
+
+analyzer:
+  exclude:
+    - '**.freezed.dart'
+    - '**.g.dart'
+  errors:
+    invalid_annotation_target: ignore

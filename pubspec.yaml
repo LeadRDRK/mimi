@@ -1,0 +1,17 @@
+name: mimi
+description: Mimi is a library that allows you to easily interact with the Misskey API.
+version: 0.1.0
+repository: https://github.com/LeadRDRK/mimi
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  meta: ^1.9.1
+  uuid: ^3.0.7
+  web_socket_channel: ^2.4.0
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
