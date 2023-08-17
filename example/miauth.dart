@@ -2,20 +2,20 @@ import 'dart:io';
 import 'package:mimi/mimi.dart';
 
 void main() async {
-  /*
-   * First, create an ApiClient.
-   * You can also create a Client instead and use its ApiClient
-   * as seen here.
-   * The Client can later be used once a token has been acquired.
-   */
-  final client = Client('misskey.io');
+  print('MiAuth example');
+
+  stdout.write('Enter a host (e.g. misskey.io): ');
+  final host = stdin.readLineSync()!;
+
+  final client = Client(host);
   // Create the MiAuth session
   final auth = MiAuth(client,
     appName: 'Mimi - MiAuth example',
     permissions: [
       MiAuthPermission.readAccount
     ],
-    allPermissions: true
+    // Or you can use allPermissions
+    // allPermissions: true
   );
 
   print('Open this link in your browser: ${auth.url}');
@@ -32,7 +32,7 @@ void main() async {
 
       /*
        * At this point, you can login with the client.
-       * client.login(result.token, result.user, fetchUser: true);
+       * client.login(result.token, user: result.user, fetchUser: true);
        * 
        * [user] and [fetchUser] are optional. If user is specified and
        * fetchUser is true, the client won't have to fetch the user again.
@@ -44,6 +44,6 @@ void main() async {
     print('Not authorized.');
   }
 
-  // It is recommended to explicitly close the client when you're done.
+  // You must explicitly close the client when you're done.
   client.close();
 }
